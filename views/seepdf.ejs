@@ -1,0 +1,64 @@
+<!-- seepdf.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>See PDFs</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>PDFs List</h1>
+
+  <% if (pdfs.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Title</th>
+          <th>Percentage</th>
+          <th>Person 1</th>
+          <th>Person 2</th>
+          <th>Date</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+        <% pdfs.forEach(pdf => { %>
+          <tr>
+            <td><%= pdf.name %></td>
+            <td><%= pdf.title %></td>
+            <td><%= pdf.percentage %></td>
+            <td><%= pdf.person1 %></td>
+            <td><%= pdf.person2 %></td>
+            <td><%= pdf.date %></td>
+
+            <!-- Add other fields as needed -->
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No PDFs found.</p>
+  <% } %>
+
+</body>
+</html>
+
