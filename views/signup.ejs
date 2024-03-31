@@ -72,6 +72,12 @@ section .container .user {
   display: flex;
 }
 
+        a{
+          color: #000;
+          font-weight: 500;
+        }
+
+
 section .container .user .imgBx {
   position: relative;
   width: 50%;
@@ -199,5 +205,10 @@ section .container .user .formBx form .signup a {
       </div>
     </div>
   </section>
+  <div class="form-group">
+    <select name="userdata" id="" hidden>
+        <option value="<%= userRole %>" name="<%= userRole %>"><%= userRole %></option>
+    </select>            
+</div>
 </body>
 </html>

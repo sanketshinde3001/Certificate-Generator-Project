@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 
 const certSchema = new mongoose.Schema(
   {
-    theme: {
-      type: Number,
-      default: 0,
-    },
     name: {
       type: String,
       default: 'abc', 
@@ -22,27 +18,19 @@ const certSchema = new mongoose.Schema(
       type: String,
       default: 'abc', 
     },
-    description: {
-      type: String,
-      default: 'abc', 
-    },
     date: {
       type: Date,
       default: Date.now,
     },
     percentage: {
       type: Number,
-      default: 1000,
+      default: 90,
     },
     visitHistory: [{ timestamp: { type: Number } }],
-    createdBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "users",
-    },
   },
   { timestamps: true }
 );
 
-const cert = mongoose.model("cert", certSchema);
+const cert1 = mongoose.model("cert1", certSchema);
 
-module.exports = cert;
+module.exports = cert1;

@@ -51,6 +51,11 @@ section {
   padding: 20px;
 }
 
+a{
+          color: #000;
+          font-weight: 500;
+        }
+
 section .container {
   position: relative;
   width: 800px;
@@ -176,5 +181,10 @@ section .container .user .formBx form .signup a {
       </div>
     </div>
   </section>
+  <div class="form-group">
+    <select name="userdata" id="" hidden>
+        <option value="<%= userRole %>" name="<%= userRole %>"><%= userRole %></option>
+    </select>            
+</div>
 </body>
 </html>

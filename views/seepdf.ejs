@@ -7,10 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>See PDFs</title>
   <style>
+
     table {
-      width: 100%;
+      width: 90%;
       border-collapse: collapse;
-      margin-top: 20px;
+      margin: auto;
     }
 
     th, td {
@@ -22,33 +23,95 @@
     th {
       background-color: #f2f2f2;
     }
+
+    a{
+          color: #000;
+          font-weight: 500;
+        }
   </style>
 </head>
 <body>
-  <h1>PDFs List</h1>
+  <h1>Generated PDF History</h1>
+  <br>
+  <br>
+  <table style="width: 20%;">
+    <tr>
+      <td>Simple PDF</td>
+      <td style="background-color: red; text-align: center;">Red bg</td>
+    </tr>
+    <tr>
+      <td>Advanced PDF</td>
+      <td style="background-color: yellow; text-align: center;">Yellow bg</td>
+    </tr>
+    <% if (userRole === 'ADMIN') { %>
+      <tr>
+        <td>Not logged users PDF</td>
+        <td style="background-color: rgb(175, 175, 175); text-align: center;">Grey bg</td>
+      </tr>
+    <% } %>
+  </table>
+  <br>
+  <br>
 
   <% if (pdfs.length > 0) { %>
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Title</th>
-          <th>Percentage</th>
-          <th>Person 1</th>
-          <th>Person 2</th>
-          <th>Date</th>
+          <th>Full Name</th>
+          <th>Course Title</th>
+          <th>Course Description</th>
+          <th>Course Percentage</th>
+          <th>Sign 1</th>
+          <th>Sign 2</th>
+          <th>Completition Date</th>
         
         </tr>
       </thead>
       <tbody>
         <% pdfs.forEach(pdf => { %>
-          <tr>
+          <% if (pdf.theme === 1) { %>
+            <tr style="background-color: rgb(248, 168, 168);">
+          <% } else if (pdf.theme === 2) { %>
+            <tr style="background-color: rgb(250, 250, 193);">
+          <% } else { %>
+            <tr style="background-color: rgb(153, 153, 153);">
+          <% } %>
             <td><%= pdf.name %></td>
             <td><%= pdf.title %></td>
+
+            <td>
+              <% if (pdf.description === 'abc') { %>
+                <span>-</span>
+              <% } else { %>
+                <%= pdf.description %>
+              <% } %>
+            </td>
+
             <td><%= pdf.percentage %></td>
-            <td><%= pdf.person1 %></td>
-            <td><%= pdf.person2 %></td>
-            <td><%= pdf.date %></td>
+            <td>
+              <% if (pdf.person1 === 'abc') { %>
+                <span>-</span>
+              <% } else { %>
+                <%= pdf.person1 %>
+              <% } %>
+            </td>
+            <td>
+              <% if (pdf.person2 === 'abc') { %>
+                <span>-</span>
+              <% } else { %>
+                <%= pdf.person2 %>
+              <% } %>
+            </td>
+            <td>
+              <div style="font-weight: bold; font-size: 16px;">
+                <%= pdf.date.toLocaleDateString('en-US', { weekday: 'short' }) %>
+              </div>
+              <div style="font-size: 14px;">
+                <%= pdf.date.toLocaleDateString('en-US', { month: 'short' }) %> 
+                <%= pdf.date.getDate() %>,
+                <%= pdf.date.getFullYear() %>
+              </div>
+            </td>
 
             <!-- Add other fields as needed -->
           </tr>
