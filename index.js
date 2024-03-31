@@ -15,8 +15,16 @@ require('dotenv').config();
 const userRoute = require("./routes/user");
 
 // mongodb configuration
+// try {
+// connectToMongoDB(process.env.MONGODB ?? "mongodb://localhost:27017/short-url").then(() =>
+//   console.log("Mongodb connected")
+// );
+// } catch (error) {
+//   console.log(error);
+// }
+
 try {
-connectToMongoDB(process.env.MONGODB ?? "mongodb://localhost:27017/short-url").then(() =>
+  connectToMongoDB(mongodb+srv://sanketshinde3123:Free2022@certgen.pjpsttq.mongodb.net/certgen?retryWrites=true&w=majority&appName=certgen).then(() =>
   console.log("Mongodb connected")
 );
 } catch (error) {
