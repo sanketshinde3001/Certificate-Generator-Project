@@ -24,7 +24,7 @@ const userRoute = require("./routes/user");
 // }
 
 try {
-  connectToMongoDB(mongodb+srv://sanketshinde3123:Free2022@certgen.pjpsttq.mongodb.net/certgen?retryWrites=true&w=majority&appName=certgen).then(() =>
+  connectToMongoDB(process.env.mongo_pass).then(() =>
   console.log("Mongodb connected")
 );
 } catch (error) {
