@@ -19,6 +19,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.0",
     "moongoose": "^0.0.5",
+    "phantomjs-prebuilt": "^2.1.16",
     "uuid": "^9.0.1"
   }
 }
