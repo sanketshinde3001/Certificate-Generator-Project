@@ -196,5 +196,5 @@ app.post("/certificate-maker", async(req, res, next) => {
   }
 });
 
-const port = 5000;
-app.listen(port, () => console.log("Server is runnig on : " + port));
+const port = process.env.PORT || 3000;
+app.listen(port,"0.0.0.0", () => console.log("Server is runnig on : " + port));
