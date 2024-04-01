@@ -150,7 +150,7 @@ app.post("/certificate-maker", async(req, res, next) => {
     pdf
       .create(simplecert(req.body, themeOptions), options)
       .toFile(
-        // __dirname + "/docs/" + shortName + "certificate.pdf",
+        __dirname + "/docs/" + shortName + "certificate.pdf",
         (error, response) => {
           if (error) throw Error("File is not created");
           res.setHeader('Content-Disposition', 'attachment; filename=' + shortName + 'certificate.pdf');
